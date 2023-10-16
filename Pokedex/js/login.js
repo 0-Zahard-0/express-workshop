@@ -22,6 +22,12 @@ function login() {
         }
     }).then(function (res) {
         console.log(res);
+        if(res.data.code === 200) {
+            localStorage.setItem("token", res.data.message);
+            window.location.href = 'pokedex.html';
+        }else {
+            alert("Usuario y/o contraseña incorrectos");
+        }
     }).catch(function (err) {
         console.log(err);
     });
